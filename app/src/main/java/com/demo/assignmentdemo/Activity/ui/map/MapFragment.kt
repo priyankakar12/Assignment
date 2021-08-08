@@ -19,12 +19,9 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class MapFragment : Fragment() {
 
-    private var _binding: FragmentMapBinding? = null
-    private val binding get() = _binding!!
-    private var mMap:GoogleMap? = null
-    private var demo:String = "hello"
-    private var demo1:String = "hello"
+    private lateinit var binding: FragmentMapBinding
 
+    private var mMap:GoogleMap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +33,7 @@ class MapFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentMapBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding = FragmentMapBinding.inflate(inflater, container, false)
 
         val supportMapFragment : SupportMapFragment = childFragmentManager.findFragmentById(R.id.gmap) as SupportMapFragment
 
@@ -51,12 +47,7 @@ class MapFragment : Fragment() {
         }
 
 
-        return root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        return binding.root
     }
 
 

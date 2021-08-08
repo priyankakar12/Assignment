@@ -11,14 +11,16 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_20dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profile_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/profile"
-            app:civ_border_color="@color/ocean"
+            android:adjustViewBounds="true"
+            app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+            android:scaleType="fitXY"
             android:layout_centerHorizontal="true"
-            app:civ_border_width="2dp" />
+            app:shapeAppearanceOverlay="@style/circle"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ll_name"
@@ -33,8 +35,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:hint="Name"
-                android:inputType="textPersonName"
-                />
+                android:inputType="textPersonName" />
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -95,6 +96,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_add_user"
             android:layout_below="@+id/ll_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -107,5 +109,10 @@
 
     </RelativeLayout>
 
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

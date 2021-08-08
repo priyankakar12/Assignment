@@ -1,6 +1,5 @@
 package com.demo.assignmentdemo.Activity.ui.home
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,17 +12,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.demo.assignmentdemo.Adapter.PhotosAdapter
 import com.demo.assignmentdemo.Models.PhotosModel
 import com.demo.assignmentdemo.ViewModel.PhotosViewModel
-
 import com.demo.assignmentdemo.databinding.FragmentHomeBinding
+
 
 class HomeFragment : Fragment() {
 
 
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var binding: FragmentHomeBinding
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
     var PhotosList:ArrayList<PhotosModel> = ArrayList()
     private lateinit var photosAdapter : PhotosAdapter
 
@@ -34,12 +30,12 @@ class HomeFragment : Fragment() {
     ): View? {
 
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+
 
         getPhotos()
 
-        return root
+        return binding.root
     }
 
     private fun getPhotos() {
@@ -56,8 +52,4 @@ class HomeFragment : Fragment() {
 
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

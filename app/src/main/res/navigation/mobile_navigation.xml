@@ -34,4 +34,12 @@
         tools:layout="@layout/fragment_user">
 
     </fragment>
+     <fragment
+        android:id="@+id/navigation_add_user"
+        android:name="com.demo.assignmentdemo.Activity.ui.adduser.AddUserFragment"
+        android:label="Add User"
+        tools:layout="@layout/fragment_add_user">
+
+    </fragment>
+
 </navigation>
